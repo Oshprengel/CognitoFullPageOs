@@ -33,8 +33,9 @@ apt-get remove -y --purge  $remove_extra
 
 apt-get autoremove -y
 
+
 #apt-get tools
-apt-get -y --force-yes install git screen checkinstall avahi-daemon libavahi-compat-libdnssd1 xterm xdotool vim expect feh pulseaudio
+apt-get -y --force-yes install git screen checkinstall avahi-daemon libavahi-compat-libdnssd1 xterm xdotool vim expect feh pulseaudio cowsay
 
 if [ "$FULLPAGEOS_INCLUDE_CHROMIUM" == "yes" ]
 then
@@ -166,7 +167,7 @@ fi
 
 #####################################################################
 ### setup services
-
+systemctl enable makelog.service
 echo "server time.nist.gov" >> /etc/ntp.conf
 echo "server ntp.ubuntu.com" >> /etc/ntp.conf
 

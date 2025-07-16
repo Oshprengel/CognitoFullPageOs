@@ -1,0 +1,15 @@
+[Unit]
+Description=Timestamp logging service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/bin/sh -c 'while true; do date >> /var/log/timestamp.log 2>/dev/null || true; sleep 60; done'
+User=root
+StandardOutput=null
+StandardError=null
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
